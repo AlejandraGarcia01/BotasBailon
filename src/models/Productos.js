@@ -7,7 +7,7 @@ const Ingresar = new Schema({
     Nombre_Producto: String,
     Descripcion_Producto: String,
     Nombre_Proveedor: String,
-    Cantidad_Prodcuto: Int32Array,
+    Cantidad_Prodcuto: String,
     Talla_Producto: String
 
 }); 

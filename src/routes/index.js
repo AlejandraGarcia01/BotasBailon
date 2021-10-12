@@ -1,6 +1,6 @@
 const express = require ('express');
 const router = express.Router();
-const model = require('../model/Productos')();
+const model = require('../models/Productos')();
 
 router.get('/', (req,res) => {
     res.render('index.ejs', {
