@@ -1,49 +1,82 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" >
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <title>Inicio de la plataforma</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title> Registro de productos </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
+
 <body>
-    <div class="container">
-    <nav class="navbar navbar-dark bg-dark">   
-    <a href="/" class="navbar-brand">  Productos  </a>    
-    </nav>
-    <div class="container"> 
-        <div class="col-md-5">  
-           <div class="card">
-               <div class="card-body">
-                   <form action="/add" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="Tipo_Producto" placeholder="Tipo de Producto" class="form-control"> 
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="Nombre_Producto" placeholder="Nombre del producto" class="form-control"> 
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="Descripcion_Producto:" placeholder="Descripcion del producto" class="form-control"> 
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="Nombre_Proveedor:" placeholder="Nombre del proveedor" class="form-control"> 
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="Cantidad_Prodcuto:" placeholder="Cantidad en existencia" class="form-control"> 
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="Talla_Producto:" placeholder="Talla del producto" class="form-control"> 
-                    </div>
-                    <button class="btn btn-primary"> Guardar </button>
-                    
-        
-                   </form>
-                   </div>
-               </div>
-           </div>   
-    </div>   
+    <div class="container" id="registration-form">
+        <div class="image "> </div>
+        <div class="frm p-3 mb-2" style="color: white; background-color: peru; font-family: Georgia, 'Times New Roman', Times, serif;"> 
+            <h1 align = "center"> Registrar Productos </h1>
+        </div>
+        &nbsp  &nbsp   &nbsp   &nbsp  
+            <form action="/add" method="POST" style="color:peru;">
+                <div class="form-group">
+                    <label for="Tipo_Producto"> Tipo de producto:  </label>
+                    <input type="text" name="Tipo_Producto" class="form-control" placeholder="Tipo de Producto" required  class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="Nombre_Producto">Nombre del producto:  </label>
+                    <input type="text" name="Nombre_Producto" class="form-control" placeholder="Nombre del producto"  required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="Descripcion_Producto"> Descripcion del producto: </label>
+                    <input type="text" name="Descripcion_Producto" class="form-control" placeholder="Descripcion del producto" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="Nombre_Proveedor"> Nombre del proveedor: </label>
+                    <input type="text" name="Nombre_Proveedor" class="form-control" placeholder="Nombre del provedor" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="Cantidad_Prodcuto"> Cantidad del producto: </label>
+                    <input type="text" name="Cantidad_Prodcuto" class="form-control"  placeholder="Cantidad de producto"
+                    required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="Talla_Producto"> Talla del producto: </label>
+                    <input type="text" name="Talla_Producto" class="form-control"  placeholder="Talla del producto" required class="form-control"> 
+                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp   
+                </div>
+                <div class="form-group" align = "center">
+                    <button class="btn btn-lg" style="background-color: peru; font-family: Georgia, 'Times New Roman', Times, serif;"> Guardar registro  </button>
+                </div>
+            </form>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+            <div class="col-md-20"> 
+                <table class="table table-bordered table-hover" style="color:white ; background-color:peru; border: black;" > 
+                    <thead> 
+                        <tr>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;"> No. </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > Tipo de producto </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > Nombre de producto  </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > Descripcion de producto </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > Nombre del provedor </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > Cantidad en existencia </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > Talla del producto </th>
+                    </tr> 
+                    </thead>
+                    <tbody> 
+                        <% for (var i = 0; i < Productos.length; i++) {  %> 
+                            <tr> 
+                                <td style="border-color: black; text-align: center;" > <%= i+1 %>  </td>
+                                <td style="border-color: black;" > <%= Productos[i].Tipo_Producto %>  </td>
+                                <td style="border-color: black;"> <%= Productos[i].Nombre_Producto  %>  </td>
+                                <td style="border-color: black;"> <%= Productos[i].Descripcion_Producto %>  </td>
+                                <td style="border-color: black;"> <%= Productos[i].Nombre_Proveedor  %>  </td>
+                                <td style="border-color: black;"> <%= Productos[i].Cantidad_Prodcuto %>  </td>
+                                <td style="border-color: black;"> <%= Productos[i].Talla_Producto  %>  </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
     </div>
 </body>
 </html>

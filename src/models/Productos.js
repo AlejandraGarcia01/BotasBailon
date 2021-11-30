@@ -9,6 +9,5 @@ const Ingresar = new Schema({
     Nombre_Proveedor: String,
     Cantidad_Prodcuto: String,
     Talla_Producto: String
-
 }); 
 module.exports = mongoose.model('Productos', Ingresar);
