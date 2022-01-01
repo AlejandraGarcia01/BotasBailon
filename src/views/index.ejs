@@ -9,31 +9,74 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css"> 
 </head>
+
+<script type="text/javascript">
+    function ConfirmDelete() 
+    {
+        var respuesta = confirm ("¿Desea eliminar este registro?");
+
+        if (respuesta == true)
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+</script>
+
+<script type="text/javascript">
+    function ConfirmEnvio() 
+    {
+        var respuesta = confirm ("¿Desea guardar el registro?");
+
+        if (respuesta == true)
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+</script>
+
 
 <body>
     <div class="container" id="registration-form">
         <div class="image "> </div>
-        <div class="frm p-3 mb-2" style="color: white; background-color: peru; font-family: Georgia, 'Times New Roman', Times, serif;"> 
-            <h1 align = "center"> Registrar Productos </h1>
+        <div class="frm p-2 mb-2" style="color: white; background-color: rgb(56, 40, 25);  font-family: Georgia, 
+        'Times New Roman', Times, serif;"> 
+            <h1 align = "center"> Productos en existencia </h1>
         </div>
         &nbsp  &nbsp   &nbsp   &nbsp  
-            <form action="/add" method="POST" style="color:peru;">
+            <form action ="/add" method="POST" style="color:rgb(56, 40, 25);">
+                <div class="form-group" align= "right">
+                    <button class="btn btn-lg" style="background-color: rgb(56, 40, 25); color: white; font-family: Georgia, 'Times New Roman', 
+                    Times, serif;" onclick="return ConfirmEnvio()"> Guardar registro  </button>
+                </div>
                 <div class="form-group">
                     <label for="Tipo_Producto"> Tipo de producto:  </label>
-                    <input type="text" name="Tipo_Producto" class="form-control" placeholder="Tipo de Producto" required  class="form-control">
+                    <input type="text" name="Tipo_Producto" class="form-control" placeholder="Tipo de Producto"
+                     required  class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="Nombre_Producto">Nombre del producto:  </label>
-                    <input type="text" name="Nombre_Producto" class="form-control" placeholder="Nombre del producto"  required class="form-control">
+                    <input type="text" name="Nombre_Producto" class="form-control" placeholder="Nombre del producto"
+                      required class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="Descripcion_Producto"> Descripcion del producto: </label>
-                    <input type="text" name="Descripcion_Producto" class="form-control" placeholder="Descripcion del producto" required class="form-control">
+                    <input type="text" name="Descripcion_Producto" class="form-control" placeholder="Descripcion del producto" 
+                    required class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="Nombre_Proveedor"> Nombre del proveedor: </label>
-                    <input type="text" name="Nombre_Proveedor" class="form-control" placeholder="Nombre del provedor" required class="form-control">
+                    <input type="text" name="Nombre_Proveedor" class="form-control" placeholder="Nombre del provedor"
+                     required class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="Cantidad_Prodcuto"> Cantidad del producto: </label>
@@ -42,37 +85,49 @@
                 </div>
                 <div class="form-group">
                     <label for="Talla_Producto"> Talla del producto: </label>
-                    <input type="text" name="Talla_Producto" class="form-control"  placeholder="Talla del producto" required class="form-control"> 
+                    <input type="text" name="Talla_Producto" class="form-control"  placeholder="Talla del producto"
+                     required class="form-control"> 
                     &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp   
-                </div>
-                <div class="form-group" align = "center">
-                    <button class="btn btn-lg" style="background-color: peru; font-family: Georgia, 'Times New Roman', Times, serif;"> Guardar registro  </button>
                 </div>
             </form>
             &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
             <div class="col-md-20"> 
-                <table class="table table-bordered table-hover" style="color:white ; background-color:peru; border: black;" > 
-                    <thead> 
+                <table class="table table-bordered table-hover" style="color:white ; background-color:silver; border: black;" > 
+                    <thead style="background-color:rgb(56, 40, 25)"> 
                         <tr>
-                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;"> No. </th>
-                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > Tipo de producto </th>
-                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > Nombre de producto  </th>
-                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > Descripcion de producto </th>
-                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > Nombre del provedor </th>
-                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > Cantidad en existencia </th>
-                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > Talla del producto </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;"> 
+                            No. </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > 
+                            Tipo de producto </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > 
+                            Nombre de producto  </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > 
+                            Descripcion  </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" >
+                             Nombre del provedor </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > 
+                            Cantidad en existencia </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > 
+                            Talla del producto </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > 
+                            Eliminar producto </th>
+                        <th style="border-color: black; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" > 
+                           Actualizar producto </th>
+
                     </tr> 
                     </thead>
                     <tbody> 
                         <% for (var i = 0; i < Productos.length; i++) {  %> 
                             <tr> 
-                                <td style="border-color: black; text-align: center;" > <%= i+1 %>  </td>
-                                <td style="border-color: black;" > <%= Productos[i].Tipo_Producto %>  </td>
-                                <td style="border-color: black;"> <%= Productos[i].Nombre_Producto  %>  </td>
-                                <td style="border-color: black;"> <%= Productos[i].Descripcion_Producto %>  </td>
-                                <td style="border-color: black;"> <%= Productos[i].Nombre_Proveedor  %>  </td>
-                                <td style="border-color: black;"> <%= Productos[i].Cantidad_Prodcuto %>  </td>
-                                <td style="border-color: black;"> <%= Productos[i].Talla_Producto  %>  </td>
+                                <td style="border-color: black; text-align: center; color: black;" > <%= i+1 %>  </td>
+                                <td style="border-color: black; color: black;" > <%= Productos[i].Tipo_Producto %>  </td>
+                                <td style="border-color: black; color: black;"> <%= Productos[i].Nombre_Producto  %>  </td>
+                                <td style="border-color: black; color: black;"> <%= Productos[i].Descripcion_Producto %>  </td>
+                                <td style="border-color: black; color: black;"> <%= Productos[i].Nombre_Proveedor  %>  </td>
+                                <td style="border-color: black; color: black;"> <%= Productos[i].Cantidad_Prodcuto %>  </td>
+                                <td style="border-color: black; color: black;"> <%= Productos[i].Talla_Producto  %>  </td>
+                                <td style="border-color: black; color: black;"> <a class="btn btn-primary btn-xl text-uppercase" style="background-color: rgb(56, 40, 25); border-color: rgb(56, 40, 25);" href='/del/<%= Productos[i].id %>' onclick ="return ConfirmDelete()" > Eliminar </a> </td>
+                                <td style="border-color: black; color: black;"> <a class="btn btn-primary btn-xl text-uppercase" style="background-color: rgb(56, 40, 25); border-color: rgb(56, 40, 25);" href='/edit/<%= Productos[i].id %>'  > Actualizar  </a> </td>
                             </tr>
                         <% } %>
                     </tbody>

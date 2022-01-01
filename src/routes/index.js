@@ -1,9 +1,10 @@
 const express = require ('express');
+const { models } = require('mongoose');
+const Productos = require('../models/Productos');
 const router = express.Router();
 const model = require('../models/Productos')();
 
 const Ingresar = require('../models/Productos'); //Constante  que trae el recusro de Productos 
-
 
 //Enviar los valores en base al modelo creado
 router.get('/', async (req,res) => {
@@ -21,12 +22,27 @@ router.post('/add', async (req,res) => {
     res.redirect('/');  
 });
 
+router.get('/del/:id', async (req, res) => {
+console.log(req.params.id);
+const reg = await Ingresar.findByIdAndRemove(req.params.id);
+console.log(reg);
+res.redirect('/');  
+});
 
+router.get('/edit/:id', async (req, res) => {
+    try {
+        const Producto = await Ingresar.findById(req.params.id).lean(); 
+          res.render("editar", { Producto });
+    } catch (error) {
+        console.log(error.message);
+    }
+});
 
+router.post("/edit/:id", async (req, res) => {
+    const { id } = req.params;
+    await Ingresar.findByIdAndUpdate(id, req.body);
+    res.redirect("/");
+});
 
 module.exports = router;
 
-
-
-
-   //res.render('index.ejs', {
